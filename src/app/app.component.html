@@ -1,0 +1,46 @@
+<!--
+<nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         <a class="navbar-brand" routerLink="/login" style="padding: 5px 5px;position: absolute;left: 30px;"> <img src="assets\orange_sigle.png" width="40" height="40" ></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-user navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Prénom NOM</a></li>
+            <li><a routerLink="/login"><span class="glyphicon glyphicon-log-out"></span> Se déconnecter</a></li>
+          </ul>
+        </div>
+      </div>
+</nav>
+<nav class="navbar-primary" style="height:200%">
+  <a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
+  <div class="collapse navbar-collapse" [collapse]="isCollapsed" id="navbar-collapse-main" style="padding: 0 6px;">
+      <ul class="nav navbar-nav navbar-primary-menu">
+                        <li (click)="isCollapsed = !isCollapsed" class="nav-item" [routerLinkActive]="['active']"><a routerLink="/month"><span class="glyphicon glyphicon-check"></span><span class="nav-label">Réservation</span></a></li>
+
+        <li (click)="isCollapsed = !isCollapsed" class="nav-item" [routerLinkActive]="['active']"><a routerLink="/reserv"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Mes Réservations</span></a></li>
+
+        <li (click)="isCollapsed = !isCollapsed" class="nav-item" [routerLinkActive]="['active']"><a routerLink="/lesSalles"><span class="glyphicon glyphicon-search"></span><span class="nav-label">les Salles</span></a></li>
+        <li (click)="isCollapsed = !isCollapsed" class="nav-item" [routerLinkActive]="['active']"><a routerLink="/gestion"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">Gestion d'accée</span></a></li>       
+      
+        <li (click)="isCollapsed = !isCollapsed" class="nav-item" [routerLinkActive]="['active']"><a routerLink="/gestionSalles"><span class="glyphicon glyphicon-wrench"></span><span class="nav-label">Gestion des salles</span></a></li>
+             <li (click)="isCollapsed = !isCollapsed" class="nav-item" [routerLinkActive]="['active']"><a routerLink="/chat"><span class="glyphicon glyphicon-wrench"></span><span class="nav-label">Chat</span></a></li>
+
+      </ul>
+    </div>
+</nav>
+
+<div class="main-content">
+  <div class="container-fluid">
+    
+<router-outlet></router-outlet>
+  </div>
+</div>
+-->
+<app-tst></app-tst>

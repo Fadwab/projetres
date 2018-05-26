@@ -1,0 +1,14 @@
+#Global
+{
+    width:100%;
+    max-height: 50%;
+}
+
+#Global #gauche {
+    float:left;
+    width:65%;
+}
+#Global #droite {
+    margin-left:70%  ;
+    
+}

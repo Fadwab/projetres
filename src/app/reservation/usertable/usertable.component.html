@@ -1,0 +1,104 @@
+
+
+
+<div class="example-container mat-elevation-z8" id="listReservations">
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element" > {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+      <mat-cell *matCellDef="let element" > {{element.date}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="heuredeb">
+      <mat-header-cell *matHeaderCellDef> Heure Deb </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element. heuredeb}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="heurefin">
+      <mat-header-cell *matHeaderCellDef> Heure Fin </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element. heurefin}} </mat-cell>
+    </ng-container>
+    
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="salle">
+      <mat-header-cell *matHeaderCellDef> Salle </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.salle}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nbparticipant">
+      <mat-header-cell *matHeaderCellDef> Nombre de participants </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nbparticipant}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="statut">
+      <mat-header-cell *matHeaderCellDef> Statut </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.statut}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+
+
+
+
+        <a  (click)="openDialogConsult(element.id , element.date , element.heuredeb , element.heurefin , element.salle , element.nbparticipant , element.statut)"  class="pointer">
+            <span class="glyphicon glyphicon-eye-open"></span>
+        </a> 
+
+        
+        
+
+
+
+
+         <a  (click)="openDialog(element.salle )"  class="pointer">
+          <span class="glyphicon glyphicon-edit" ></span></a>
+        
+        
+        
+        
+          <a (click)="openDialogDelete()"  class="pointer"><span class="glyphicon glyphicon-trash"></span></a>
+     
+     
+       
+      
+      
+      
+      
+      
+      </mat-cell>
+    
+
+
+
+        
+    
+    
+    
+      </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>
+
+
+
+
+
+

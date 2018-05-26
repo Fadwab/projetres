@@ -1,0 +1,75 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-cont > * {
+  width: 800%;
+}
+button{
+    background-color: red;
+}
+div.centre {
+    position:absolute;
+    left: 50%;
+    top: 90%;
+    width: 100px;
+    height: 500px;
+    margin-left: -100px;
+    margin-top: -100px;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.login-box{
+    width:40% ;
+     height: 80%;
+     background: #404040;
+     color: afff;
+     top: 10%;
+     left: 30%;
+     position : absolute;
+     transform : transtate(-50% , -50%);
+     box-sizing: border-box;
+
+}
+
+.app-header{
+    height: 80px;
+	color: #fff;
+    background-color:  #ff4d4d;
+    text-align: center;
+    padding: 1%;
+
+}
+
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 1070px;
+  padding-top: 100px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+.pointer {cursor: pointer;}
+
+

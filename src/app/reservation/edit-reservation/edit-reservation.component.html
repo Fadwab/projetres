@@ -1,0 +1,103 @@
+<div style=" text-align:center;background-color:#fe6500"> <h1> Modifier ma reservation</h1></div>
+<div class="col-md-3"></div>
+<div class="col-md-8">
+<img src="assets\images\imgA.jpg" width="80%" height="150px" >
+</div>
+
+
+<div class="col-md-4"></div>
+
+<ul>
+ <li *ngFor="let a of salles">
+   
+  
+  
+ </li>
+</ul> 
+
+
+<p *ngFor="let a of salles" >
+<a *ngIf='a.viewValue == passedsalle '> {{a.value}}</a>
+</p>
+
+
+
+
+
+
+
+
+
+{{passedsalle}}
+
+
+
+<mat-form-field>
+  <mat-select placeholder="Nom de la salle"  [(ngModel)]="salle" name="something" >
+    <mat-option *ngFor="let p of salles" [value]="p.value" >
+      {{ p.viewValue }} 
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+
+<br> <br>
+<div>
+<label>
+    Date du réunion
+    <input [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2">
+    <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+</label>
+</div>
+<br>  
+<div class="col-md-6" >
+<label>
+    Heure Deb
+    <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3">
+    <owl-date-time [pickerType]="'timer'" #dt3></owl-date-time>
+</label>
+</div>
+<div class="col-md-6" >
+<label>
+    Heure Fin
+    <input [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4">
+    <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
+</label>
+</div>
+<br><br> <br>
+<div class="col-md-4"></div>
+<div class="col-md-8">
+<mat-form-field>
+  <mat-select placeholder="Nombre de participants">
+    <mat-option *ngFor="let p of nb" [value]="p.value">
+      {{ p.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+<br> <br> <br> <br>
+<div class="col-md-4"></div>
+<div>
+  <mat-slide-toggle>Védio conf</mat-slide-toggle>
+</div>
+<br>
+<div class="col-md-4"></div>
+<div>
+<mat-slide-toggle>Rétroprojecteur</mat-slide-toggle>
+</div>
+<br>
+<div class="col-md-4"></div>
+<div>
+<mat-slide-toggle>Tableau</mat-slide-toggle>
+</div>
+<br>
+<div class="col-md-4"></div>
+<div>
+<mat-slide-toggle>Climatisation</mat-slide-toggle>
+</div>
+
+<div class="col-md-4"></div>
+<div class="col-md-4"></div>
+<button mat-raised-button color="warn">Valider</button>
+<a mat-raised-button routerLink="." (click)="dialogRef.close()">Annuler</a>

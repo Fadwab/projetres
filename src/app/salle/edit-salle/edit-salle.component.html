@@ -1,0 +1,85 @@
+
+
+
+
+<table   style="width:120% ;  background-color:white !important ; color : black !important;">
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+  <tr>
+  <td style="height:100px">
+  <label class="col-form-label" for="nom">Nom</label>
+  </td>
+    <td>
+        <input type="text" class="form-control" id="nom" [(ngModel)]="data.nom" name="nom"  >
+       
+    </td>
+  </tr>
+    <!--Contains mat-hint for characters count and has maxLengt set-->
+    <tr>
+       <td>
+  <label class="col-form-label" for="etage">Etage</label>
+  </td>
+      <td>
+        <input type="text" class="form-control"  id="etage" [(ngModel)]="data.etage" name="prenom" maxlength="10" >
+        
+       
+      </td>
+    </tr>
+
+   <tr>
+      <td style="height:100px">
+  <label class="col-form-label" for="bloc">Bloc</label>
+  </td>
+     <td>   
+          <input type="text" class="form-control" placeholder="Bloc" id="bloc" [(ngModel)]="data.bloc" name="bloc">
+     </td>
+   </tr>
+
+   
+
+    <tr>
+       <td>
+  <label class="col-form-label" for="capacite">Capacité</label>
+  </td>
+   <td>
+        <input type="text" class="form-control" placeholder="Capacite" id="capacite" [(ngModel)]="data.capacite" name="capacite">
+      
+    
+</td>
+</tr>
+</form>
+</table>
+
+
+<br><br>
+
+<div class="col-md-4"></div>
+<div>
+  <mat-slide-toggle  [(ngModel)]="data.vedeo_conf"><p>Vidéo conf</p></mat-slide-toggle>
+</div>
+<br>
+<div class="col-md-4"></div>
+<div>
+<mat-slide-toggle [(ngModel)]="data.retroprojecteur"><p>Rétroprojecteur</p></mat-slide-toggle>
+</div>
+<br>
+<div class="col-md-4"></div>
+<div>
+<mat-slide-toggle [(ngModel)]="data.tableau"><p>Tableau</p></mat-slide-toggle>
+</div>
+<br>
+<div class="col-md-4"></div>
+<div>
+<mat-slide-toggle [(ngModel)]="data.climatisation"><p>Climatisation</p></mat-slide-toggle>
+</div>
+
+<br><br>
+
+<div class="col-md-1"></div>
+    <div class="col-md-11">
+      <button mat-raised-button color="warn" [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="stopEdit()">Enregistrer</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Annuler</button>
+    </div>
+  
+

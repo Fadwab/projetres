@@ -1,0 +1,32 @@
+<table style="background-color:white !important; color:black !important; height:200px !important ; width:600px; border:10px ;" > 
+<tr> <td> <strong>Id</strong> </td> 
+     <td>{{id}}</td>
+     <td rowspan="5" style="text-align:right;"> <img src="assets\images\imgA.jpg" width="200px" height="200px" ></td>
+</tr>
+
+  <tr> 
+  <td><strong>  Nom </strong> </td> 
+  <td>  {{nom}} </td>
+
+</tr>
+
+
+
+<tr > <td><strong> Etage</strong></td> 
+     <td>{{etage}} </td>
+</tr>
+
+<tr> <td><strong> Bloc </strong></td> 
+     <td> {{bloc}} </td>
+</tr>
+<tr> <td><strong> Capacité </strong></td> 
+     <td>{{capacite}}</td>
+</tr>
+
+</table>
+<br>
+<br>
+<div class="col-md-8" ></div> 
+<div class="col-md-4">
+
+<button mat-raised-button color="warn" (click)="dialogRef.close()">ok</button></div>

@@ -1,0 +1,41 @@
+
+
+<div style=" text-align:center;background-color:#fe6500"> <h1>  Ma reservation</h1></div>
+
+<div class="col-md-8">
+<img src="assets\images\imgA.jpg" width="80%" height="150px" >
+</div>
+<br><br><br><br><br><br>
+<div>
+<table style="background-color:white !important; color:gray !important; height:60px; width:50%; ">
+<tr>
+<td> ID RESERVATION </td> <td> {{this.passedId }} </td>
+
+</tr>
+<tr>
+<td>Date reservetion </td><td> {{this.passeddate }} </td>
+</tr>
+<tr>
+<td>Heure Deb </td><td> {{this.passedheuredeb }} </td>
+</tr>
+<tr>
+<td>Heure Fin </td><td> {{this.passedheurefin }} </td>
+</tr>
+<tr>
+<td>Salle </td><td> {{this.passedsalle }} </td>
+
+</tr>
+<tr>
+<td>Nombre de participants</td><td> {{this.passednbparticipant }} </td>
+</tr>
+<tr>
+<td>Satut </td><td> {{this.passedstatut }} </td>
+</tr>
+</table>
+</div>
+<br>
+<br> <br>
+      <div class="col-md-8"> </div>
+<div class="col-md-4">     
+    <button mat-raised-button color="warn" (click)="dialogRef.close()">Ok</button>
+</div>

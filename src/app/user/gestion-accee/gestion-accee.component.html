@@ -1,0 +1,236 @@
+
+<!--
+<form #f="ngForm"  style="width:500px;" ngNativeValidate>
+
+
+<table   style="width:215%">
+<tr>
+<td  style="height:100px">
+<label class="col-form-label" for="matricule" >Matricule</label>
+</td>
+<td>
+   <input type="text" class="form-control" placeholder="Matricule" id="matricule" [(ngModel)]="register.matricule" name="matricule">
+  </td>
+</tr>
+ 
+<tr>
+  <td>
+  <label class="col-form-label" for="nom">Nom</label>
+  </td>
+<td style="height:100px">
+  <input type="text" class="form-control" placeholder="Nom" id="nom" [(ngModel)]="register.nom" name="nom">
+</td>
+</tr>
+<tr>
+<td >
+<label class="col-form-label" for="prenom">Prenom</label>
+</td>
+<td>
+   <input type="text" class="form-control" placeholder="Prenom" id="prenom" [(ngModel)]="register.prenom" name="prenom">
+  </td>
+</tr>
+
+
+
+<tr>
+<td >
+<label for="email">Email address</label>
+</td>
+<td>
+   <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="email" [(ngModel)]="register.email" name="email">
+  </td>
+</tr>
+<tr>
+<td  style="height:100px">
+      <label for="password">Password</label>
+
+</td>
+    <td>    
+      <input type="text" class="form-control" id="password" placeholder="Password" [(ngModel)]="register.mot_de_passe" name="mot_de_passe">
+    </td>
+
+</tr>
+
+
+
+<tr>
+<td  style="height:100px">
+      <label for="password">adresse</label>
+
+</td>
+    <td>    
+      <input type="text" class="form-control" id="adresse" placeholder="adresse" [(ngModel)]="register.adresse" name="adresse">
+    </td>
+
+</tr>
+
+
+
+   <tr>
+    <td>
+    </td>
+    <td style="text-align: right">
+      <button mat-raised-button color="warn" style="padding-right:20%" (click) ='registerUser(register)' >Ajouter </button>
+      </td>
+    
+  </tr>
+</table>
+
+</form> 
+
+
+_______________________________________________________________________
+
+<div class="login-box">
+  <div class="app-header">
+    <h3 class="app-heading">Welcome</h3>
+</div>
+  <div class="centre" style=" max-width: 500px;position: absolute; width: 300px; height:400px; top:0; bottom:0; left:0; right: 0; margin: auto;">
+<br><br>
+<div class="example-cont">
+  <form #f="ngForm" (ngSubmit)="onSearch(f.value)" style="width:500px;">
+  <mat-form-field style="width:300px">
+    <input matInput name="nom" ngModel placeholder="Nom">
+  </mat-form-field>
+<div>
+  <mat-form-field style="width:300px">
+    <input matInput placeholder="Prenom" >
+  </mat-form-field>
+</div>
+  <mat-form-field style="width:300px">
+    <input matInput name="prenom" ngModel placeholder="Email">
+  </mat-form-field>
+  <div>
+  <mat-form-field style="width:300px">
+    <input matInput name="password" ngModel placeholder="Passwosd">
+  </mat-form-field>
+  </div>
+<div>
+  <mat-form-field style="width:300px">
+    <input matInput placeholder="Passwosd">
+  </mat-form-field>
+  </div>
+  <mat-form-field style="width:300px">
+    <input matInput name="matricule" ngModel placeholder="Matricule">
+  </mat-form-field>
+  <br>
+  <br>
+  <div >
+ <button mat-raised-button color="warn">Warn</button>
+  </div >
+ </form>
+</div>
+</div>
+</div> -->
+
+
+
+
+
+<h3 style="text-align: center;">Gérer les Collaborateurs ici</h3>
+ 
+  <button mat-icon-button (click)="refresh()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+
+
+<div class="container mat-elevation-z8">
+
+  <div class="form"  id="listSalle">
+    <mat-form-field floatPlaceholder="never" color="red">
+      <input matInput #filter placeholder="Filter issues">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="matricule" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Matricule</mat-header-cell>
+      <mat-cell *matCellDef="let row" >{{row.matricule}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nom">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>nom</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nom}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Prenom</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.username}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.email}}</mat-cell>
+    </ng-container>
+
+    
+
+    <ng-container matColumnDef="password">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Mot de passe</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.password}}</mat-cell>
+    </ng-container>
+
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button (click)="addNew()">
+          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        <a (click)="startEdit(i, row.matricule, row.nom, row.username, row.email,row.password)" class="pointer">
+           <span class="glyphicon glyphicon-edit" ></span>
+        </a>
+
+        <a (click)="deleteItem(i, row.matricule, row.nom, row.username, row.email)" class="pointer">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </mat-cell>
+    </ng-container>
+
+
+
+
+
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+  <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+    No results
+  </div>
+
+  <mat-paginator #paginator
+                
+               [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 800]"
+                 >
+  </mat-paginator>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+  

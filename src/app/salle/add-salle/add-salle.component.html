@@ -1,0 +1,112 @@
+
+
+
+
+
+
+
+
+
+
+
+<table   style="width:120% ;  background-color:white !important ; color : black !important;">
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+   <tr>
+
+
+    
+      <td style="height:100px">
+  <label class="col-form-label" for="nom">Numéro de la salle </label>
+  </td>
+    
+     <td>
+        <input type="text" class="form-control" placeholder="numéro" id="numero" [(ngModel)]="data.salle_id" name="numero" required >
+   </td>
+      </tr> 
+    
+    <!--Textarea for demo purposes-->
+    <!--Textarea for demo purposes-->
+    
+      <tr>
+           <td>
+  <label class="col-form-label" for="nom">Nom</label>
+  </td>
+     <td>
+        <input type="text" class="form-control" placeholder="Nom" id="nom" [(ngModel)]="data.nom" name="nom" required >
+        </td>
+      </tr>
+      
+    
+
+    <!--Contains mat-hint for characters count and has maxLengt set-->
+    
+       <tr>
+            <td style="height:100px">
+  <label class="col-form-label" for="etage">Etage</label>
+  </td>
+     <td>
+        <input type="text" class="form-control" placeholder="etage" id="prenom" [(ngModel)]="data.etage" name="etage"  required >
+       
+    </td>
+      </tr>
+
+    
+      <tr>
+           <td>
+  <label class="col-form-label" for="bloc">Bloc</label>
+  </td>
+     <td>
+        <input type="text" class="form-control" placeholder="Bloc" id="bloc" [(ngModel)]="data.bloc" name="bloc">
+       </td>
+      </tr>
+    
+
+   
+
+    
+       <tr>
+            <td style="height:100px">
+  <label class="col-form-label" for="nom">Capacite</label>
+  </td>
+     <td>
+        <input type="text" class="form-control" placeholder="Capacité" id="capacite" [(ngModel)]="data.capacite" name="capacite">
+       </td>
+      </tr>
+    
+
+  </form>
+</table>
+
+
+<div class="col-md-4"></div>
+<div>
+  <mat-slide-toggle  [(ngModel)]="data.vedeo_conf"><p>Védio conf</p></mat-slide-toggle>
+</div>
+<br>
+<div class="col-md-4"></div>
+<div>
+<mat-slide-toggle [(ngModel)]="data.retroprojecteur"><p>Rétroprojecteur</p></mat-slide-toggle>
+</div>
+<br>
+<div class="col-md-4"></div>
+<div>
+<mat-slide-toggle [(ngModel)]="data.tableau"><p>Tableau</p></mat-slide-toggle>
+</div>
+<br>
+<div class="col-md-4"></div>
+<div>
+<mat-slide-toggle [(ngModel)]="data.climatisation"><p>Climatisation</p></mat-slide-toggle>
+</div>
+
+
+
+
+
+<br><br>
+ <div class="col-md-6"></div>
+ <div class="col-md-6">
+<button mat-raised-button color="warn" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="confirmAdd()" >save</button>
+<button  mat-raised-button routerLink="." (click)="dialogRef.close()" >Annuler</button >
+ </div>

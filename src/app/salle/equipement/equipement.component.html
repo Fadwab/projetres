@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+
+<p style="text-align: center;" >Equipements de la salle<span style="font-weight : bolder;"> {{data.nom}} </span></p>
+<br><br>
+<div>
+  <mat-slide-toggle  [(ngModel)]="data.vedeo_conf"><p>Vidéo conf</p></mat-slide-toggle>
+</div>
+<br>
+
+<div>
+<mat-slide-toggle [(ngModel)]="data.retroprojecteur"><p>Rétroprojecteur</p></mat-slide-toggle>
+</div>
+<br>
+
+<div>
+<mat-slide-toggle [(ngModel)]="data.tableau"><p>Tableau</p></mat-slide-toggle>
+</div>
+<br>
+
+<div>
+<mat-slide-toggle [(ngModel)]="data.climatisation"><p>Climatiseur</p></mat-slide-toggle>
+</div>
+
+<br><br>
+ <div class="col-md-6"></div>
+ <div class="col-md-6">
+
+<button   mat-raised-button color="warn" (click)="dialogRef.close()" >Ok</button >
+</div>

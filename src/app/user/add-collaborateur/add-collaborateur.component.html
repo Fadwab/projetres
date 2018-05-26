@@ -1,0 +1,87 @@
+
+
+
+
+
+
+
+
+
+
+
+<table   style="width:120% ;  background-color:white !important ; color : black !important;">
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+   <tr>
+
+
+    
+      <td style="height:100px">
+  <label class="col-form-label" for="nom">Matricule</label>
+  </td>
+    
+     <td>
+        <input type="text" class="form-control" placeholder="Matricule" id="matricule" [(ngModel)]="data.matricule" name="matricule" required >
+   </td>
+      </tr> 
+    
+    <!--Textarea for demo purposes-->
+    <!--Textarea for demo purposes-->
+    
+      <tr>
+           <td>
+  <label class="col-form-label" for="nom">Nom</label>
+  </td>
+     <td>
+        <input type="text" class="form-control" placeholder="Nom" id="nom" [(ngModel)]="data.nom" name="nom" required >
+        </td>
+      </tr>
+      
+    
+
+    <!--Contains mat-hint for characters count and has maxLengt set-->
+    
+       <tr>
+            <td style="height:100px">
+  <label class="col-form-label" for="nom">Prénom</label>
+  </td>
+     <td>
+        <input type="text" class="form-control" placeholder="Prenom" id="prenom" [(ngModel)]="data.username" name="username" maxlength="10" required >
+       
+    </td>
+      </tr>
+
+    
+      <tr>
+           <td>
+  <label class="col-form-label" for="nom">Email</label>
+  </td>
+     <td>
+        <input type="text" class="form-control" placeholder="Email" id="email" [(ngModel)]="data.email" name="email">
+       </td>
+      </tr>
+    
+
+   
+
+    
+       <tr>
+            <td style="height:100px">
+  <label class="col-form-label" for="nom">Mot de passe</label>
+  </td>
+     <td>
+        <input type="text" class="form-control" placeholder="Mot de passe" id="mot_de_passe" [(ngModel)]="data.password" name="mot_de_passe">
+       </td>
+      </tr>
+    
+
+  </form>
+</table>
+
+<br><br>
+ <div class="col-md-2"></div>
+ <div class="col-md-10">
+<button mat-raised-button color="warn" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="confirmAdd()" >Enregistrer</button>
+<button  mat-raised-button routerLink="." (click)="dialogRef.close()" >Annuler</button >
+ </div>

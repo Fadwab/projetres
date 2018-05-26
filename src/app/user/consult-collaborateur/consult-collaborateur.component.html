@@ -1,0 +1,30 @@
+
+<table style="background-color:white !important; color:black !important; height:200px !important ; width:600px; border:10px ;" > 
+<tr> <td> <strong>Matricule</strong> </td> 
+     <td> {{matricule}}</td>
+     <td rowspan="4" style="text-align:right;"> <img src="assets\images\fadwa.jpg" width="200px" height="200px" ></td>
+</tr>
+
+  <tr> 
+  <td><strong>  Nom </strong> </td> 
+  <td>  {{nom}} </td>
+
+</tr>
+
+
+
+<tr > <td><strong> Prenom </strong></td> 
+     <td> {{prenom}}</td>
+</tr>
+
+<tr> <td><strong> Adresse </strong></td> 
+     <td> {{adresse}} </td>
+</tr>
+<tr> <td><strong> Mot de passe </strong></td> 
+     <td></td>
+</tr>
+
+</table>
+<div class="col-md-8" ></div> 
+<div class="col-md-4">
+<button mat-raised-button color="warn" (click)="dialogRef.close()">ok</button></div>

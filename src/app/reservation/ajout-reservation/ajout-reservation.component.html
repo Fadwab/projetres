@@ -1,0 +1,198 @@
+
+
+
+
+
+<div class="col-md-5"></div>
+  <legend style="color: black">Réserver la salle</legend>
+ 
+<div class="form-group">  
+  <div class="row">
+     <div class="col-sm-4">
+        <label>
+          Date du réunion
+          <input [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" [(ngModel)]="recherche.date">
+          <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+        </label>
+      </div>
+          <div class="col-sm-4"><label>
+    Heure Deb
+    <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3"  [(ngModel)]="recherche.heure_deb">
+    <owl-date-time [pickerType]="'timer'" #dt3></owl-date-time>
+</label></div>
+    <div class="col-sm-4" ><label>
+    Heure Fin
+    <input [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4"  [(ngModel)]="recherche.heure_fin">
+    <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
+</label></div>
+  </div>
+
+</div>
+<br><br>
+
+<div class="form-group">
+      <label for="exampleSelect1">Nombre de personnes</label>
+      <select class="form-control" id="exampleSelect1"  [(ngModel)]="recherche.nb_participants">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>*
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        
+        
+      </select>
+    </div>
+
+
+<br>
+
+<!--
+<div class="col-md-4"></div>
+<div class="col-md-6"></div>
+ <button mat-raised-button color="warn" class="pull-right" (click)="rechercher()">
+   Lancer ma recherche
+  </button>
+</fieldset>
+<br />-->
+
+
+
+
+
+
+
+
+
+
+
+<table class="table table-responsive">
+ <tr *ngFor="let salle of salles">
+  <td width=10%> 
+   <input type="radio" name="salle" value="{{salle.salle_id}}" [(ngModel)]="recherche.salle">
+  </td>
+  <td width=90%>
+    <div>
+      <p>
+      {{ salle.nom }}
+      <span *ngIf="!visible[salle.salle_id]" (click)="visible[salle.salle_id] = !visible[salle.salle_id]" class="BtnDetail">Afficher</span>
+      <span *ngIf="visible[salle.salle_id]" (click)="visible[salle.salle_id] = !visible[salle.salle_id]" class="BtnDetail">Masquer</span>
+      </p>
+      <div *ngIf="visible[salle.salle_id]">
+        <p>Capacite: {{salle.capacite}}</p>
+        <p>etage: {{salle.etage}}</p>
+        <p>bloc: {{salle.bloc}}</p> 
+        <p>vedeo_conf: {{salle.vedeo_conf}}</p>
+        <p>retroprojecteur: {{salle.retroprojecteur}}</p>
+        <p>tableau: {{salle.tableau}}</p>
+        <p>climatisation: {{salle.climatisation}}</p>
+      </div>
+    </div>
+  </td>
+
+</tr>
+
+
+
+
+</table>
+
+  <div class="form-group">
+  <label class="col-form-label" for="inputDefault">Titre de la réunion</label>
+  <input type="text" class="form-control" placeholder="Default input" id="inputDefault"  [(ngModel)]="recherche.titre">
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-form-label" for="inputDefault">Coleur</label>
+  <input type="color" [(ngModel)]="recherche.myColor">
+</div>
+
+
+
+<button
+    class="btn btn-warning pull-right"
+    (click)="onButtonClicked()">
+    Ajouter réservation
+  </button>
+
+
+<!--
+<div *ngIf="salles">
+
+
+<fieldset class="blocSalles">
+  <legend style="color: black">Résultat de la recherche</legend>
+</fieldset>
+<table class="table table-responsive">
+ <tr *ngFor="let salle of salles">
+  <td width=10%> 
+   <input type="radio" name="salle" value="{{salle.salle_id}}" [(ngModel)]="recherche.salle">
+  </td>
+  <td width=90%>
+    <div>
+      <p>
+      {{ salle.nom }}
+      <span *ngIf="!visible[salle.salle_id]" (click)="visible[salle.salle_id] = !visible[salle.salle_id]" class="BtnDetail">Afficher</span>
+      <span *ngIf="visible[salle.salle_id]" (click)="visible[salle.salle_id] = !visible[salle.salle_id]" class="BtnDetail">Masquer</span>
+      </p>
+      <div *ngIf="visible[salle.salle_id]">
+        <p>Capacite: {{salle.capacite}}</p>
+        <p>etage: {{salle.etage}}</p>
+        <p>bloc: {{salle.bloc}}</p> 
+        <p>vedeo_conf: {{salle.vedeo_conf}}</p>
+        <p>retroprojecteur: {{salle.retroprojecteur}}</p>
+        <p>tableau: {{salle.tableau}}</p>
+        <p>climatisation: {{salle.climatisation}}</p>
+      </div>
+    </div>
+  </td>
+
+</tr>
+
+
+
+
+</table>
+
+
+
+<div class="form-group">
+  <label class="col-form-label" for="inputDefault">Titre de la réunion</label>
+  <input type="text" class="form-control" placeholder="Default input" id="inputDefault"  [(ngModel)]="recherche.titre">
+</div>
+
+<div class="form-group">
+  <label class="col-form-label" for="inputDefault">Coleur</label>
+  <input type="color" [(ngModel)]="recherche.myColor">
+</div>
+
+<div class="form-group">
+  <label class="col-form-label" for="inputDefault">Périodique</label>
+  <select [(ngModel)]="recherche.periodique">
+    <option value="0">Réservation unique</option>
+    <option value="1">Réservation sur une semaine</option>
+    <option value="2">Réservation sur un mois</option>
+  </select>
+</div>
+
+<button
+    class="btn btn-primary pull-right"
+    (click)="onButtonClicked()">
+    Add new
+  </button>
+  
+</div>
+
+  -->

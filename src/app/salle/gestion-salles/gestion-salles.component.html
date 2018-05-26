@@ -1,0 +1,236 @@
+
+<!--
+<form #f="ngForm" (ngSubmit)="onSearch(f.value)" style="width:500px;">
+
+
+<table   style="width:215%">
+
+
+<tr>
+  <td>
+  <label class="col-form-label" for="nom">Nom</label>
+  </td>
+<td style="height:100px">
+  <input type="text" class="form-control" placeholder="Nom" id="nom">
+</td>
+</tr>
+<tr>
+<td >
+<label class="col-form-label" for="etage">Etage</label>
+</td>
+<td>
+   <input type="text" class="form-control" placeholder="Etage" id="etage">
+  </td>
+</tr>
+
+<tr>
+<td  style="height:100px">
+<label class="col-form-label" for="bloc">Bloc</label>
+</td>
+<td>
+   <input type="text" class="form-control" placeholder="Bloc" id="bloc">
+  </td>
+</tr>
+
+<tr>
+<td >
+<label for="capacite">Capacité</label>
+</td>
+<td>
+   <input type="email" class="form-control" id="capacite" aria-describedby="capacite" placeholder="Capacité">
+  </td>
+</tr>
+ <tr>
+    <td style="height:100px">
+    </td>
+    <td style="text-align: right">
+      <button mat-raised-button color="warn" style="padding-right:20%">Ajouter </button>
+      </td>
+  </tr>
+</table>
+
+
+<div class="example-container mat-elevation-z8" id="listCollaborateur">
+  <div class="example-header" style="background-color:white !important;">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource">
+
+    
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="nom">
+      <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="etage">
+      <mat-header-cell *matHeaderCellDef> Etage </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.etage}} </mat-cell>
+    </ng-container>
+
+ 
+    <ng-container matColumnDef="bloc">
+      <mat-header-cell *matHeaderCellDef> Bloc </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.bloc}} </mat-cell>
+    </ng-container>
+     <ng-container matColumnDef="capacite">
+      <mat-header-cell *matHeaderCellDef> Capacite </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.capacite}} </mat-cell>
+    </ng-container>
+
+
+
+
+<ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+
+
+
+
+        <a (click)="openDialogConsult(element.id , element.nom ,element.etage, element.bloc , element.capacite )"   class="pointer">
+            <span class="glyphicon glyphicon-eye-open"></span>
+        </a> 
+
+        
+        
+
+
+
+
+         <a (click)="openDialog(element.nom)"    class="pointer">
+          <span class="glyphicon glyphicon-edit" ></span></a>
+        
+        
+        
+        
+          <a (click)="openDialogDelete()" class="pointer"><span class="glyphicon glyphicon-trash"></span></a>
+     
+        </mat-cell>
+    
+
+
+
+        
+    
+    
+    
+      </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>
+-->
+<h3 style="text-align: center;">Gérer les salles ici</h3>
+
+<button mat-icon-button (click)="refresh()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+
+
+<div class="container mat-elevation-z8">
+
+  <div class="form"  id="listSalle">
+    <mat-form-field floatPlaceholder="never" color="red">
+      <input matInput #filter placeholder="Filter issues">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+  
+<ng-container matColumnDef="salle_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>N</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.salle_id}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nom">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>nom</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nom}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="etage">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Etage</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.etage}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="capacite">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Capacite</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.capacite}}</mat-cell>
+    </ng-container>
+
+    
+
+    <ng-container matColumnDef="bloc">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Bloc</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.bloc}}</mat-cell>
+    </ng-container>
+<ng-container matColumnDef="equipement">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Equipement</mat-header-cell>
+      <mat-cell *matCellDef="let row"> <a (click)="affEquip(i, row.salle_id,row.nom, row.climatisation , row.tableau,row.vedeo_conf , row.retroprojecteur)" class="pointer">
+           <span class="glyphicon glyphicon-eye-open" ></span>
+        </a> </mat-cell>
+    </ng-container>
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button (click)="addNew()">
+          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        <a (click)="startEdit(row.salle_id,row.nom, row.etage, row.bloc,row.capacite, row.vedeo_conf,row.retroprojecteur,row.tableau,row.climatisation)" class="pointer">
+           <span class="glyphicon glyphicon-edit" ></span>
+        </a>
+
+        <a (click)="deleteItem(row.salle_id)" class="pointer">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </mat-cell>
+    </ng-container>
+
+
+
+
+
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+  <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+    No results
+  </div>
+
+  <mat-paginator #paginator
+                
+               [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 800]"
+                 >
+  </mat-paginator>
+</div>
